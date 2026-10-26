@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" width="560" height="480">
+  <!-- Ilustração decorativa: panela, colher de pau, tábua, tomate e cenoura. -->
+  <circle cx="290" cy="250" r="212" fill="#F4EBDC"/>
+  <circle cx="462" cy="102" r="58" fill="#E8EDDD"/>
+  <circle cx="96" cy="136" r="34" fill="#F6E3D9"/>
+
+  <g fill="#A3421F" opacity=".45">
+    <circle cx="112" cy="252" r="4"/>
+    <circle cx="96" cy="292" r="3"/>
+    <circle cx="482" cy="286" r="4"/>
+    <circle cx="500" cy="236" r="3"/>
+    <circle cx="420" cy="58" r="3"/>
+  </g>
+
+  <!-- Colher de pau -->
+  <g transform="rotate(22 440 170)">
+    <rect x="433" y="40" width="14" height="170" rx="7" fill="#C99A68" stroke="#9C7148" stroke-width="3"/>
+    <ellipse cx="440" cy="240" rx="28" ry="40" fill="#C99A68" stroke="#9C7148" stroke-width="3"/>
+    <ellipse cx="440" cy="244" rx="15" ry="24" fill="#B88757" opacity=".55"/>
+  </g>
+
+  <!-- Vapor -->
+  <g fill="none" stroke="#A3421F" stroke-width="6" stroke-linecap="round" opacity=".5">
+    <path d="M206 146c-16-18 16-30 0-52"/>
+    <path d="M250 138c-16-18 16-30 0-52"/>
+    <path d="M294 146c-16-18 16-30 0-52"/>
+  </g>
+
+  <!-- Panela -->
+  <rect x="116" y="192" width="38" height="16" rx="8" fill="#36441A"/>
+  <rect x="346" y="192" width="38" height="16" rx="8" fill="#36441A"/>
+  <path d="M150 176h200v78c0 26-20 46-46 46H196c-26 0-46-20-46-46z" fill="#4A5C23"/>
+  <rect x="138" y="162" width="224" height="24" rx="12" fill="#36441A"/>
+  <path d="M174 206h152" stroke="#6E8238" stroke-width="6" stroke-linecap="round"/>
+  <path d="M174 222h98" stroke="#6E8238" stroke-width="6" stroke-linecap="round" opacity=".6"/>
+
+  <!-- Tábua -->
+  <g transform="rotate(-5 300 380)">
+    <rect x="104" y="318" width="372" height="122" rx="32" fill="#D3A777" stroke="#9C7148" stroke-width="4"/>
+    <circle cx="444" cy="379" r="11" fill="#F4EBDC" stroke="#9C7148" stroke-width="4"/>
+    <g stroke="#B88757" stroke-width="3" stroke-linecap="round" opacity=".7">
+      <path d="M138 344h120"/>
+      <path d="M300 352h100"/>
+      <path d="M150 416h90"/>
+      <path d="M286 420h120"/>
+    </g>
+  </g>
+
+  <!-- Tomate -->
+  <circle cx="196" cy="372" r="40" fill="#C2552F"/>
+  <ellipse cx="181" cy="356" rx="11" ry="7" fill="#E07A55" opacity=".85"/>
+  <g fill="#4A5C23">
+    <ellipse cx="186" cy="334" rx="13" ry="5" transform="rotate(-25 186 334)"/>
+    <ellipse cx="207" cy="334" rx="13" ry="5" transform="rotate(25 207 334)"/>
+    <rect x="193" y="320" width="6" height="14" rx="3"/>
+  </g>
+
+  <!-- Cenoura -->
+  <g transform="translate(296 394) rotate(-16)">
+    <path d="M0 0c-14-14-30-26-46-24c16 4 32 14 46 24z" fill="#4A5C23"/>
+    <path d="M0 0c-22-4-40 2-50 14c16-8 32-12 50-14z" fill="#6E8238"/>
+    <path d="M0 -15c56 2 100 8 142 15c-42 7-86 13-142 15c-6-10-6-20 0-30z" fill="#D9752E"/>
+    <g stroke="#B85E22" stroke-width="3" stroke-linecap="round">
+      <path d="M32 -10l4 7"/>
+      <path d="M66 -7l3 6"/>
+      <path d="M98 -4l3 5"/>
+    </g>
+  </g>
+
+  <!-- Folhas de manjericão -->
+  <g fill="#6E8238">
+    <ellipse cx="268" cy="424" rx="16" ry="8" transform="rotate(-20 268 424)"/>
+    <ellipse cx="290" cy="430" rx="14" ry="7" transform="rotate(15 290 430)"/>
+  </g>
+  <path d="M262 428l-10 6" stroke="#4A5C23" stroke-width="3" stroke-linecap="round"/>
+</svg>
