@@ -6,9 +6,9 @@ Landing page do **Ateliê do Sabor**, escola de culinária fictícia (briefing d
 
 ## Como abrir
 
-- Abra o `index.html` no navegador. Não há build nem dependências.
-- Para publicar: GitHub → *Settings* → *Pages* → branch `main`, pasta `/ (root)`.
-- Testes das regras (Node 18 ou superior), na raiz do projeto: `node --test`
+- **Online:** https://uisgabrieo.github.io/Experimento/
+- **No computador:** abra o `index.html` no navegador. Não há build nem dependências.
+- **Testes das regras** (Node 18 ou superior), na raiz do projeto: `node --test`
 
 Nenhum dado é enviado ou guardado. O formulário funciona só na página: validação, erro, revisão e confirmação acontecem no navegador.
 
@@ -22,6 +22,7 @@ Nenhum dado é enviado ou guardado. O formulário funciona só na página: valid
 | `js/app.js` | Menu, seção atual, datas das turmas e formulário em 3 etapas |
 | `img/` | Ilustração decorativa e ícone, em SVG próprio |
 | `tests/regras.test.js` | 13 testes das regras com `node:test` |
+| `verificacao/` | Relatórios do Lighthouse e capturas de tela em alto contraste |
 
 ## Contexto de uso (seção 0)
 
@@ -116,11 +117,25 @@ Todos os testes usaram dados fictícios.
   - carregamento com bloqueio de clique duplo; confirmação com foco; reiniciar com todas as caixas desmarcadas.
 - **Privacidade:** só pedidos GET dos arquivos da própria página. Nenhum POST e nenhum dado na URL. `localStorage`, `sessionStorage` e cookies vazios. Sem erros no console.
 
+**Lighthouse 13.5.0** (Edge 156), na página publicada: **100** em Desempenho, Acessibilidade, Práticas recomendadas e SEO, tanto no perfil celular quanto no computador. Os relatórios completos estão em `verificacao/`.
+- O GitHub Pages já comprime os arquivos (gzip), então o código pôde continuar legível, sem minificação.
+- A única sugestão restante é um cache mais longo. O GitHub Pages fixa `max-age=600` (10 minutos), e isso não depende do projeto.
+- O Lighthouse também lista 10 itens de acessibilidade para conferência manual. Eles estão cobertos pelos testes de teclado e de formulário acima, menos o leitor de tela (ver pendências).
+
+**Três motores de navegador (Playwright 1.64.1), 52 verificações passando:** Edge 156 (Chromium), Firefox 157 e WebKit 27.2 (o motor do Safari, aqui no Windows, que não é o Safari do iPhone).
+- Em cada um: sem rolagem horizontal em 320, 390 e 1366 px; datas calculadas; menu móvel com Esc devolvendo o foco.
+- Também em cada um, o fluxo Kids completo com cliques e digitação reais: erros e foco no resumo, idade 13 recusada, clique no texto das autorizações, revisão, confirmação com foco, nada guardado e sem erros de JavaScript.
+
+**Alto contraste (`forced-colors`, simulado no Edge):** botões, campos, opções escolhidas, ícones de erro e foco continuam visíveis. Capturas em `verificacao/`.
+
+**Árvore de acessibilidade** (o que o leitor de tela recebe, lido no Edge pela DevTools Protocol): cada campo da etapa 2 com erro chega com nome, “obrigatório”, “inválido” e uma descrição com a dica e a mensagem de erro. Os grupos chegam com o nome da legenda, e o resumo chega como “Corrija 8 itens para continuar”. Isso complementa, mas não substitui, ouvir com um leitor de tela.
+
 **Correções feitas a partir da verificação:**
 
 1. O aviso “Protótipo acadêmico” estava fora de qualquer região (axe `region`). Virou `<aside>` com rótulo.
 2. Os resumos de erro apontavam `aria-labelledby` para um título que só existe quando há erro. O vínculo agora é criado junto com o título.
 3. Com texto a 200% em 320 px havia até 65 px de rolagem horizontal. Itens de grade e flex agora podem encolher, e palavras longas quebram nos rótulos, botões, etiquetas, indicador de etapas e perguntas.
+4. Com “movimento reduzido” ligado, o destaque da opção escolhida aparecia com um quadro de atraso (visto no Edge). A regra global `transition-duration` criava transições em todas as propriedades. Agora só o indicador de carregamento para de girar.
 
 **Contraste (WCAG, calculado a partir das cores do CSS):**
 
@@ -137,8 +152,8 @@ Todos os testes usaram dados fictícios.
 
 ## Pendências (não executadas)
 
-- Leitor de tela real (NVDA, VoiceOver ou TalkBack): ouvir topo, menu, formulário, um erro e a confirmação.
-- Checklist completo da ABNT NBR 17225.
-- Lighthouse ou WAVE. Foi usado o axe-core, que é o motor do axe DevTools.
-- Celulares reais (Safari no iOS, Chrome no Android) e modo de alto contraste do Windows na prática. O CSS tem regras para `forced-colors`, mas elas não foram vistas na tela.
-- Revisão cruzada por outra ferramenta de IA e teste com pessoas do público.
+- **Leitor de tela real** (NVDA, VoiceOver ou TalkBack): ouvir topo, menu, formulário, um erro e a confirmação. A árvore de acessibilidade foi conferida, mas não substitui ouvir.
+- **Checklist completo da ABNT NBR 17225:** a norma é paga e não estava disponível.
+- **Celulares reais** (Safari no iPhone, Chrome no Android) e o tema de alto contraste ligado de verdade no Windows. Até aqui, os dois foram simulados.
+- **Revisão cruzada por outra ferramenta de IA** (Gemini ou ChatGPT). Quem gerou o código não deve ser quem o revisa (seção 11 do material).
+- **Teste com pessoas do público.**
