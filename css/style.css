@@ -1423,16 +1423,14 @@ textarea.input {
 
 /* ---------- Preferências do sistema ---------- */
 
+/* A página não usa transições; com movimento reduzido, o indicador de carregamento fica parado. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .is-loading .spinner {
+    animation: none;
   }
 
-  .button:active {
+  .button--primary:active,
+  .button--secondary:active {
     transform: none;
   }
 }
